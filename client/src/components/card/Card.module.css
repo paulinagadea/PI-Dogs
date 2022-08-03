@@ -1,0 +1,50 @@
+.card {
+    display: inline-flex;
+    flex-direction: column;
+    height: 400px;
+    width: 20%;
+    margin: 20px;
+    padding: 0.5em;
+    border-radius: 0.5rem;
+    background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35));
+}
+
+.name {
+    font-family: 'Open Sans', sans-serif;
+    color: #66ff66;
+    align-self: center;
+    opacity: 0.7;
+}
+
+.temperaments {
+    font-family: 'Open Sans', sans-serif;
+    color: #fff;
+    align-self: center;
+    font-size: 15px;
+    margin-top: -5px;
+}
+
+.weight {
+    font-family: 'Open Sans', sans-serif;
+    color: #66ff66;
+    align-self: center;
+    opacity: 0.7;
+    margin-top: 10px;
+}
+
+.line {
+    height: 2px;
+    color: #fff;
+}
+
+.img {
+    border-radius: 0.5rem;
+    height: 220px;
+    width: 250px;
+    align-self: center;
+}
+
+.content {
+    padding: 5px;
+    align-self: center;
+}

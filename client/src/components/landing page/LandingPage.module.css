@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Uchen&display=swap');
+
+.background {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(rgba(0,0,0,0.40), rgba(0,0,0,0.40)), url("../../assets/gabriel-crismariu-IgQo1_gUzBY-unsplash.jpg");
+    background-size: cover;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 900px;
+    margin: 60px 100px;
+}
+
+.title {
+    font-family: 'Poppins';
+    font-size: 55px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 2px;
+    line-height: 20px;
+    margin-bottom: 40px;
+    margin-left: 20px;
+}
+
+.text {
+    margin-bottom: -5px;
+    color: #85e085;
+    font-size: 20px;
+    font-family: 'Uchen';
+}
+
+.button {
+    color: #fff;
+    background: #5cd65c;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 10px 20px;
+    border-radius: 6px;
+    border-color: #5cd65c;
+    margin-left: 140px;
+    border: none;
+    cursor: pointer;
+}

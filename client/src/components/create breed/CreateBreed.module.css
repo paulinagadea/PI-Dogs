@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+.div {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.background {
+    display: flex; 
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    background-image: linear-gradient(rgba(0,0,0,0.20), rgba(0,0,0,0.20)), url("../../assets/pexels-eberhard-grossgasteiger-1287089.jpg");
+    background-size: cover;
+    padding: 10px;
+}
+
+.container {
+    max-width: 700px;
+    width: 100%;
+    padding: 25px 30px;
+    border-radius: 25px;
+    background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35));
+}
+
+.title {
+    font-size: 35px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    font-family: 'Oswald';
+    color: #2e590e;
+    position: relative;
+    text-align: center;
+    padding: 0 0 20px 0;
+}
+
+.title::before {
+    content: "";
+    position: absolute;
+    height: 3px;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: #5cd65c;
+}
+
+.details {
+    margin-top: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.label {
+    width: calc(100% / 2 - 20px);
+    margin-bottom: 15px;
+}
+
+.text {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+    font-family: 'Open Sans', sans-serif;
+    color: #fff;
+    font-size: 16px;
+}
+
+.label input {
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    font-size: 16px;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+}
+
+.box {
+    text-align: center;
+}
+
+.button {
+    padding: 10px 0;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 100%;
+    width: 200px;
+    outline: none;
+    color: #fff;
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    background: linear-gradient(135deg, #132a13, #4f772d);
+}
+
+.button:hover {
+    background: linear-gradient(-135deg, #132a13, #4f772d);;
+}
+
+.option {
+    font-family: 'Open Sans', sans-serif;
+    color: #4f772d;
+}
+
+.temperaments {
+    margin: 40px;
+    text-align: center;
+}
+
+.temp {
+    padding: 5px;
+    margin: 5px;
+    margin-top: -40px;
+    border-radius: 20px;
+    background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35));
+}
+
+.names {
+    color: #5cd65c;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.buttons {
+    border-radius: 5px;
+    font-size: 17px;
+    border: none;
+    color: #2e590e;
+    align-self: center;
+}
+
+.p {
+    color: #ff3333;
+}

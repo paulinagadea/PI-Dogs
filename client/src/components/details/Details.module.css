@@ -1,0 +1,78 @@
+.background {
+    display: flex; 
+    height: 100vh;
+    flex-direction: column;
+    align-items: center; 
+    background-image: linear-gradient(rgba(0,0,0,0.20), rgba(0,0,0,0.20)), url("../../assets/pexels-eberhard-grossgasteiger-1287089.jpg");
+    background-size: cover;
+    justify-content: center;
+}
+
+.card {
+    width: 500px;
+    border-radius: 0.8rem;
+    background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35));
+}
+
+.img {
+    height: 300px;
+    width: 350px;
+    display: flex;
+    border-radius: 0.8rem;
+    margin-left: 73px;
+    margin-top: 10px;
+}
+
+.temperaments {
+    font-family: 'Open Sans', sans-serif;
+    color: #fff;
+    font-size: 18px;
+    margin-top: -5px;
+    margin-left: 20px;
+    margin-right: 20px;
+    letter-spacing: 0.5px;
+}
+
+.name {
+    margin-left: 20px;
+    font-family: 'Poppins';
+    letter-spacing: 1px;
+    color: #5cd65c;
+}
+
+.life {
+    font-family: 'Open Sans', sans-serif;
+    color: #fff;
+    font-size: 16px;
+    margin-top: -5px;
+    margin-left: 20px;
+    letter-spacing: 0.5px;
+}
+
+.text {
+    border-radius: 0.8rem;
+    border: 1px solid;
+    padding: 6px;
+}
+
+.info {
+    display: flex;
+    justify-content: space-evenly;
+    font-family: 'Open Sans', sans-serif;
+    color: #5cd65c;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+}
+
+.button {
+    height: 1.8rem;
+    letter-spacing: 2px;
+    cursor: pointer;
+    font-size: 1rem;
+    background-color: #5cd65c;
+    color: #003300;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Open Sans', sans-serif;
+    margin-top: 15px;
+}
