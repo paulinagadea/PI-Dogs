@@ -12,14 +12,23 @@ import style from './Home.module.css';
 export default function Home() {
     const dispatch = useDispatch();
     const allDogs = useSelector((state) => state.dogs);
+
+    // Set the current page in 1 and render 8 breeds per page.
     const [currentPage, setCurrentPage] = useState(1);
     const [dogsPerPage, /*setDogsPerPage*/] = useState(8);
-    const [/*order*/, setOrder] = useState('');
-    const indexOfLastDog = currentPage * dogsPerPage;
-    const indexOfFirstDog = indexOfLastDog - dogsPerPage;
-    const currentDogs = allDogs.slice(indexOfFirstDog, indexOfLastDog);
 
-    const paginado = (pageNumber) => {
+    // State used at the order components.
+    const [/*order*/, setOrder] = useState('');
+
+    // Save the index of the last and first breeds.
+    const indexOfLastDog = currentPage * dogsPerPage;  // Example: 1 * 8 = 8 --> 2 * 8 = 16
+    const indexOfFirstDog = indexOfLastDog - dogsPerPage;  // Example: 8 - 8 = 0 --> 16 - 8 = 8
+
+    // Save the breeds rended per page, 'cut' the global state by the index of the first and last breeds.
+    const currentDogs = allDogs.slice(indexOfFirstDog, indexOfLastDog); 
+
+    // Get the number at the pagination component and set the current page.
+    function paginado(pageNumber) {
         setCurrentPage(pageNumber);
     };
 
@@ -31,18 +40,29 @@ export default function Home() {
         dispatch(getTemperaments())
     ), [dispatch]);
 
-    function handleClick(e){
+    // Reload the breeds; set the current page to the first page and render the breeds.
+    function handleClick(e) {
         e.preventDefault();
         setCurrentPage(currentPage);
         dispatch(getDogs());
     };
 
-    const handleClickPrev = (e) => {
+    // Used by the prev and next buttons.
+    function handleClickPrev() {
         setCurrentPage(currentPage - 1);
     };
 
-    const handleClickNext = (e) => {
+    function handleClickNext() {
         setCurrentPage(currentPage + 1);
+    };
+
+    // Get the temperaments and join the names.
+    function joinTemps(temperaments) {
+        let temps = [];
+        for (const temp of temperaments) {
+            temps.push(temp.name);
+        };
+        return temps.join(', ');
     };
 
     return (
@@ -50,8 +70,13 @@ export default function Home() {
 
             <div className={style.topbar}>
                 <Link className={style.link} to='/'><h1 className={style.title}>Puppies App</h1></Link>
+
                 <button className={style.reload} onClick={e => {handleClick(e)}}>Reload dogs</button>
-                <Link to='/create'><button className={style.create}>Create breed!</button></Link>
+                
+                <Link to='/create'>
+                    <button className={style.create}>Create breed!</button>
+                </Link>
+
                 <SearchBar />
             </div>
 
@@ -64,17 +89,19 @@ export default function Home() {
             </div>
 
             <div className={style.container}> 
+                {/* Render the breeds of the current page. */}
                 { currentDogs?.map(e => {
                     return (
                         <Link className={style.link} to={`/dogs/${e.id}`} key={e.id}>
                             <Card key={e.id} 
                                 image={e.image} 
-                                name={e.name} temperament={e.temperament ? e.temperament : e.temperaments?.map(el => el.name + ', ')} 
+                                name={e.name} 
+                                temperament={ e.temperaments ? joinTemps(e.temperaments) : e.temperament } 
                                 /*min_weight={e.min_weight} max_weight={e.max_weight}*/ 
                                 weight={e.weight} />
                         </Link>
                     );
-                }) }
+                  }) }
             </div>
 
             <nav>

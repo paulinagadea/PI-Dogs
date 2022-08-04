@@ -1,6 +1,10 @@
 const initalState = {
-    dogs: [],
+    // Fixed state.
     allDogs: [],
+
+    // Used for changes of the state allDogs.
+    dogs: [],
+
     temperaments: [],
     details: [],
 };
@@ -34,21 +38,31 @@ function rootReducer(state = initalState, action) {
 
         case 'POST_BREED':
         return {
-            ...state
+            ...state,
         };
 
         case 'FILTER_BY_TEMPERAMENT':
-            const allDogs = state.allDogs;
-            const filteredDogs = action.payload === 'all'? allDogs 
-            : allDogs.filter(e => e.temperament?.includes(action.payload));
+            const allDogs = state.allDogs
+            const filtered = action.payload === 'all' ? allDogs 
+            : allDogs.filter(e => { 
+                if (e.temperament) {
+                    return e.temperament.includes(action.payload);
+                } else if (e.temperaments) {
+                    let temps = e.temperaments.map(e => e.name);
+                    return temps.includes(action.payload);
+                }
+                return true;
+            });
+
             return {
                 ...state,
-                dogs: filteredDogs
+                dogs: filtered
             };
+
 
         case 'EXISTENT_OR_CREATED':
             const allBreeds = state.allDogs;
-            const filteredBreeds = action.payload === 'all'? allBreeds
+            const filteredBreeds = action.payload === 'all' ? allBreeds
             : action.payload === 'api'? allBreeds.filter(e => !e.created_in_db) : allBreeds.filter(e => e.created_in_db);
 
             return {
@@ -59,7 +73,7 @@ function rootReducer(state = initalState, action) {
         case 'ORDER_ALPH':
             const allNames = state.allDogs;
             const orderedNames = 
-            action.payload === 'asc'? allNames.sort(function(a, b) {
+            action.payload === 'az'? allNames.sort(function(a, b) {
                 if (a.name.toLowerCase() > b.name.toLowerCase()) {
                     return 1;
                 } else if (a.name < b.name) {
@@ -68,11 +82,11 @@ function rootReducer(state = initalState, action) {
                     return 0;
                 };
             })
-            : action.payload === 'desc'? allNames.sort(function(b, a) {
+            : action.payload === 'za'? allNames.sort(function(a, b) {
                 if (a.name.toLowerCase() > b.name.toLowerCase()) {
-                    return 1;
-                } else if (a.name.toLowerCase() < b.name.toLowerCase()) {
                     return -1;
+                } else if (a.name.toLowerCase() < b.name.toLowerCase()) {
+                    return 1;
                 } else {
                     return 0;
                 };

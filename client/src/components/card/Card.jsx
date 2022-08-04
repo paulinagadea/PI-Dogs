@@ -1,8 +1,14 @@
 import React from 'react';
 import style from './Card.module.css';
 
+// Transform the first character of every word to uppercase.
 function firstChar(name) {
-    return name.charAt(0).toUpperCase() + name.slice(1);
+    let splited = name.split(' ');
+    let array = [];
+    for (const word of splited) {
+        array.push(word.charAt(0).toUpperCase() + word.slice(1));
+    }
+    return array.join(' ');
 };
 
 export default function Card({image, name, temperament, /*min_weight, max_weight*/ weight}) {
@@ -15,10 +21,6 @@ export default function Card({image, name, temperament, /*min_weight, max_weight
 
             <div className={style.content}>    
                 <h2 className={style.name}>{firstChar(name)}</h2>
-
-                <div className={style.line}>
-                    <br></br>
-                </div>
                 
                 { temperament ? <h3 className={style.temperaments}>{temperament}</h3>
                 : <h3 className={style.temperaments}>Temperaments not found</h3> }
@@ -30,3 +32,4 @@ export default function Card({image, name, temperament, /*min_weight, max_weight
         </div>
     );
 };
+

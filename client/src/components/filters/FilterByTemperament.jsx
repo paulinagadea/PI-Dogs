@@ -16,9 +16,9 @@ export default function FilterByTemperament() {
             <span className={style.option}>Temperaments </span>
                 <select className={style.select} onChange={(e) => {handleFilterByTemperament(e)}}>
                     <option value='all'>All</option>
-                    { allTemperaments?.map((e) => (
-                        <option value={e.name} key={e.id}>{e.name}</option>
-                    )) } 
+                        { allTemperaments?.map((e) => (
+                            <option value={e.name} key={e.id}>{e.name}</option>
+                          )) } 
                 </select>
         </div>
     );

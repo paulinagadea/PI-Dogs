@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { orderByWeight } from '../../actions/index.js';
 import style from '../nav bar/NavBar.module.css';
 
+// Get the setCurrentPage and setOrder from the home component.
 export default function OrderByWeight({setCurrentPage, setOrder}) {
     const dispatch = useDispatch();
 
