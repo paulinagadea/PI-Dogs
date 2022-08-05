@@ -17,6 +17,7 @@ export default function SearchBar() {
     function handleSubmit(e) {
         e.preventDefault();
         dispatch(getNames(name));
+        setName('');
     };
 
     return (

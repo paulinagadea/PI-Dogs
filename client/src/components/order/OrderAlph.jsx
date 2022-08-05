@@ -10,15 +10,16 @@ export default function OrderAlph({setCurrentPage, setOrder}) {
     function handleOrderAlph(e) {
         e.preventDefault();
         dispatch(orderAlph(e.target.value));
-        setCurrentPage(1);
         // Render the breeds sorted.
         setOrder(e.target.value);
+        setCurrentPage(1);
     };
 
     return (
         <div className={style.contenedor}>
             <span className={style.option}>Alphabetical order </span>
                 <select className={style.select} onChange={e => {handleOrderAlph(e)}}>
+                    <option></option>
                     <option value='az'>A to Z</option>
                     <option value='za'>Z to A</option>
                 </select>

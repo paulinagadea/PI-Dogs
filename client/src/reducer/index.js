@@ -36,6 +36,12 @@ function rootReducer(state = initalState, action) {
                 details: action.payload
             };
 
+        case 'DETAIL_EMPTY': 
+            return {
+                ...state,
+                details: []
+            };
+
         case 'POST_BREED':
         return {
             ...state,
@@ -76,7 +82,7 @@ function rootReducer(state = initalState, action) {
             action.payload === 'az'? allNames.sort(function(a, b) {
                 if (a.name.toLowerCase() > b.name.toLowerCase()) {
                     return 1;
-                } else if (a.name < b.name) {
+                } else if (a.name.toLowerCase() < b.name.toLowerCase()) {
                     return -1;
                 } else {
                     return 0;

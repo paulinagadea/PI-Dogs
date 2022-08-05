@@ -14,18 +14,6 @@ module.exports = (sequelize) => {
       primaryKey: true,
       allowNull: false,
     },
-    // min_height: {
-    //   type: DataTypes.STRING,
-    // },
-    // max_height: {
-    //   type: DataTypes.STRING,
-    // },
-    // min_weight: {
-    //   type: DataTypes.STRING,
-    // },
-    // max_weight: {
-    //   type: DataTypes.STRING,
-    // },
     height: {
       type: DataTypes.STRING,
       allowNull: false,

@@ -19,6 +19,7 @@ export default function ExistentOrCreated() {
         <div className={style.contenedor}>
             <span className={style.option}>Breeds </span>
                 <select className= {style.select} onChange={(e) => {handleExistentOrCreated(e)}}>
+                    <option></option>
                     <option value='all'>All breeds</option>
                     <option value='api'>Existent</option>
                     <option value='created'>Created</option>

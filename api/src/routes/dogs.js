@@ -17,7 +17,7 @@ dogsRoutes.get('/', async (req, res) => {
             if (dog) {
                 res.status(200).send(dog);
             } else {
-                res.status(404).send('Dog not found');
+                res.status(404).json({ message: "Recipe not found" });
             };
         };
     } catch (error) {

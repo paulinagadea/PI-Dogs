@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { getDetails } from '../../actions/index.js';
+import { getDetails, detailEmpty } from '../../actions/index.js';
 import style from './Details.module.css';
 
 export default function Details() {
@@ -14,8 +14,12 @@ export default function Details() {
 
     useEffect(() => {
         dispatch(getDetails(id));
+        return () => {
+            dispatch(detailEmpty());
+        };
     }, [dispatch, id]);
 
+     
     // Transform the first character of every word to uppercase.
     function firstChar(name) {
         let splited = name.split(' ');

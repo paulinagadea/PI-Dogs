@@ -15,6 +15,10 @@
     color: #009900;
 }
 
+.input:focus {
+    outline: none;
+}
+
 .button {
     color: #fff;
     background: #5cd65c;
@@ -28,3 +32,9 @@
     width: 80px;
     opacity: 0.9;
 }
+
+.button:hover {
+    background: #33a833;
+    transition: .5s;
+}
+

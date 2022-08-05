@@ -43,7 +43,7 @@ export default function Home() {
     // Reload the breeds; set the current page to the first page and render the breeds.
     function handleClick(e) {
         e.preventDefault();
-        setCurrentPage(currentPage);
+        setCurrentPage(1);
         dispatch(getDogs());
     };
 
@@ -96,8 +96,7 @@ export default function Home() {
                             <Card key={e.id} 
                                 image={e.image} 
                                 name={e.name} 
-                                temperament={ e.temperaments ? joinTemps(e.temperaments) : e.temperament } 
-                                /*min_weight={e.min_weight} max_weight={e.max_weight}*/ 
+                                temperament={ e.temperaments ? joinTemps(e.temperaments) : e.temperament }  
                                 weight={e.weight} />
                         </Link>
                     );
@@ -107,7 +106,7 @@ export default function Home() {
             <nav>
                 <ul className={style.pags}>
                     <button className={style.footerbuttons} onClick={e => {handleClickPrev(e)}}>Prev</button>
-                        <Pagination dogsPerPage={dogsPerPage} allDogs={allDogs.length} paginado={paginado} />
+                        <Pagination dogsPerPage={dogsPerPage} allDogs={allDogs.length} paginado={paginado} currentPage={currentPage}/>
                     <button className={style.footerbuttons} onClick={e => {handleClickNext(e)}}>Next</button>
                 </ul>
             </nav>

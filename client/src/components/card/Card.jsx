@@ -11,7 +11,7 @@ function firstChar(name) {
     return array.join(' ');
 };
 
-export default function Card({image, name, temperament, /*min_weight, max_weight*/ weight}) {
+export default function Card({image, name, temperament, weight}) {
     return (
         <div className={style.card}>
 
@@ -22,8 +22,7 @@ export default function Card({image, name, temperament, /*min_weight, max_weight
             <div className={style.content}>    
                 <h2 className={style.name}>{firstChar(name)}</h2>
                 
-                { temperament ? <h3 className={style.temperaments}>{temperament}</h3>
-                : <h3 className={style.temperaments}>Temperaments not found</h3> }
+                <h3 className={style.temperaments}>{temperament}</h3>
             
                 { weight === null ? <h4 className={style.weight}>Weight not found</h4> 
                 : <h4 className={style.weight}>Weight: {weight}kg</h4> }

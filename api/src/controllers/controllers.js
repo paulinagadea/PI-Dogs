@@ -16,10 +16,6 @@ const getAll = async () => {
             apiDogs.push({
                 name: dog.name,
                 id: dog.id,
-                // min_height: Number(dog.height.metric.split(' - ')[0]) || null,
-                // max_height: Number(dog.height.metric.split(' - ')[1]) || null,
-                // min_weight: Number(dog.weight.metric.split(' - ')[0]) || null,
-                // max_weight: Number(dog.weight.metric.split(' - ')[1]) || null,
 
                 // Split height and weight; if the first element isn't "NaN" I'll transform it into a number and save it.
                 // If the first element is "NaN" I'll take the second element, transform it into a number and save it.
@@ -29,7 +25,7 @@ const getAll = async () => {
                 : Number(dog.weight.metric.split(' - ')[1]),
                 life_span: dog.life_span,
                 image: dog.image.url,
-                temperament: dog.temperament,
+                temperament: dog.temperament? dog.temperament : 'Temperaments not found',
             });
         };
         
@@ -82,17 +78,13 @@ const getById = async (id) => {
 };
 
 // Get the results from the form and create a new breed.
-const createDog = async (name, life_span, /*min_height, max_height, min_weight, max_weight,*/ height, weight, image, temperament) => {
+const createDog = async (name, life_span, height, weight, image, temperament) => {
     try {
         // Create and save the new breed.
         const dogCreated = await Dog.create({
             name: name.toLowerCase(),
             id: uuidv4(),
             life_span,
-            // min_height,
-            // max_height,
-            // min_weight,
-            // max_weight,
             height,
             weight,
             image,

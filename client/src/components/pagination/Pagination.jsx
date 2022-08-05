@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './Pagination.module.css';
 
-export default function Pagination({dogsPerPage, allDogs, paginado}) {
+export default function Pagination({dogsPerPage, allDogs, paginado, currentPage}) {
     // Amount of numbers of the pagination.
     const pageNumbers = [];
 
@@ -11,10 +11,17 @@ export default function Pagination({dogsPerPage, allDogs, paginado}) {
     };
 
     return (
-        <div>
+        <div className={style.container}>
             { pageNumbers?.map(number => (
-                <button className={style.numbers} key={number} onClick={() => paginado(number)}>{number}</button>
-            ))}
+                <button className={style.numbers} 
+                key={number}
+                style={ currentPage === number? {
+                    backgroundColor: '#66ff66',
+                    color: '#000',
+                } 
+                : null } 
+                onClick={() => paginado(number)}>{number}</button>
+            )) }
         </div>
         
     );
