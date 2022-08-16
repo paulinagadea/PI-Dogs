@@ -10,7 +10,7 @@ function validate(input) {
 
   if (!input.name) {
     errors.name = "Name is required!";
-  } else if (input.name.length < 3 || /[0-9 -.+]/.test(input.name)) {
+  } else if (input.name.length < 3 || /[0-9.+]/.test(input.name)) {
     errors.name = "Invalid name";
   };
 

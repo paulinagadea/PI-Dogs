@@ -14,16 +14,34 @@ dogsRoutes.get('/', async (req, res) => {
             res.status(200).send(allDogs);
         } else {
             const dog = await getByName(name);
-            if (dog) {
+            if (dog.length) {
                 res.status(200).send(dog);
             } else {
-                res.status(404).json({ message: "Recipe not found" });
+                res.status(404).send("Dog not found");
             };
         };
     } catch (error) {
         res.send(error);
     };
 });
+
+// dogsRoutes.get('/', async (req, res) => {
+//     const { name } = req.query;
+
+//         if (!name) {
+//             getAll()
+//             .then(result => res.status(200).send(result))
+//             // res.status(200).send(allDogs);
+//         } else {
+//             getByName(name)
+//             .then(result => {if (result) {
+//                 res.status(200).send(result);
+//             } else {
+//                 res.status(404).send("Dog not found" );
+//             }})
+//         };
+    
+// });
 
 // Get the breed that matches the id.
 dogsRoutes.get('/:id', async (req, res) => {
@@ -42,9 +60,9 @@ dogsRoutes.get('/:id', async (req, res) => {
 
 // Get the results of the form and create a new breed.
 dogsRoutes.post('/', async (req, res) => {
-    const { name, life_span, /*min_height, max_height, min_weight, max_weight,*/ height, weight, image, temperament } = req.body;
+    const { name, life_span, height, weight, image, temperament } = req.body;
     try {
-        const newDog = await createDog(name, life_span, /*min_height, max_height, min_weight, max_weight,*/ height, weight, image, temperament);
+        const newDog = await createDog(name, life_span, height, weight, image, temperament);
         if (newDog) {
             res.status(200).send(newDog);
         } else {

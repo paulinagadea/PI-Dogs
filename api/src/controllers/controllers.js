@@ -54,8 +54,10 @@ const getByName = async (name) => {
     try {
         // Get the breeds, filter by the breed's name.
         const allDogs = await getAll();
+        console.log(allDogs)
         if (name) {
             const dogName = allDogs.filter(d => d.name.toLowerCase().includes(name.toLowerCase()));
+            console.log(dogName);
             return dogName;
         };
     } catch (error) {
@@ -89,6 +91,9 @@ const createDog = async (name, life_span, height, weight, image, temperament) =>
             weight,
             image,
         });
+        
+        await getTemperament();
+
         // Search the temperaments in the database and add them to the new breed.
         const temperamentDb = await Temperament.findAll({
             where: {

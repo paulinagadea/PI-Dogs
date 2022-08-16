@@ -8,8 +8,8 @@ import style from './NavBar.module.css';
 export default function NavBar({setCurrentPage, setOrder}) {
     return (
         <nav className={style.bar}>
-            <FilterByTemperament />
-            <ExistentOrCreated />
+            <FilterByTemperament setCurrentPage={setCurrentPage}/>
+            <ExistentOrCreated setCurrentPage={setCurrentPage}/>
             <OrderAlph setCurrentPage={setCurrentPage} setOrder={setOrder}/>
             <OrderByWeight setCurrentPage={setCurrentPage} setOrder={setOrder}/>
         </nav>

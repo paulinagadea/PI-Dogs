@@ -10,42 +10,37 @@ export function getDogs() {
       });
     } catch (error) {
       console.error(error);
-    }
+    };
   };
-}
+};
 
 export function getNames(payload) {
   return async function (dispatch) {
     try {
-      const name = await axios.get(
-        "http://localhost:3001/dogs?name=" + payload
-      );
+      const name = await axios.get("http://localhost:3001/dogs?name=" + payload);
       return dispatch({
         type: "GET_NAMES",
         payload: name.data,
       });
-    } catch (error) {
-      alert("Breed not found");
-      console.log(error);
-    }
+    } catch {
+      alert('Breed not found');
+    };
   };
-}
+};
 
 export function getTemperaments() {
   return async function (dispatch) {
     try {
-      const allTemperaments = await axios.get(
-        "http://localhost:3001/temperaments"
-      );
+      const allTemperaments = await axios.get("http://localhost:3001/temperaments");
       return dispatch({
         type: "GET_TEMPERAMENTS",
         payload: allTemperaments.data,
       });
     } catch (error) {
       console.error(error);
-    }
+    };
   };
-}
+};
 
 export function postBreed(payload) {
   return async function () {
@@ -54,37 +49,37 @@ export function postBreed(payload) {
       return breed;
     } catch (error) {
       console.error(error);
-    }
+    };
   };
-}
+};
 
 export function filterByTemperament(payload) {
   return {
     type: "FILTER_BY_TEMPERAMENT",
     payload,
   };
-}
+};
 
 export function existentOrCreated(payload) {
   return {
     type: "EXISTENT_OR_CREATED",
     payload,
   };
-}
+};
 
 export function orderByWeight(payload) {
   return {
     type: "ORDER_BY_WEIGHT",
     payload,
   };
-}
+};
 
 export function orderAlph(payload) {
   return {
     type: "ORDER_ALPH",
     payload,
   };
-}
+};
 
 export function getDetails(id) {
   return async function (dispatch) {
@@ -96,12 +91,12 @@ export function getDetails(id) {
       });
     } catch (err) {
       console.error(err);
-    }
+    };
   };
 }
 
 export function detailEmpty() {
     return {
         type: 'DETAIL_EMPTY'
-    }
-}
+    };
+};

@@ -3,12 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { filterByTemperament } from '../../actions/index.js';
 import style from '../nav bar/NavBar.module.css';
 
-export default function FilterByTemperament() {
+export default function FilterByTemperament({setCurrentPage}) {
     const dispatch = useDispatch();
     const allTemperaments = useSelector((state) => state.temperaments);
 
     function handleFilterByTemperament(e) {
         dispatch(filterByTemperament(e.target.value));
+        setCurrentPage(1);
     };
 
     return (
